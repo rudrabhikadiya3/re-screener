@@ -1,6 +1,8 @@
+'use client'
 import ImageCarousel from '@/components/misc/ImageCarousel'
 import { BriefcaseBusiness, ExternalLink, Landmark, LandPlot } from 'lucide-react'
 import Link from 'next/link'
+import NearbyDevelopments from '@/components/section/NearbyDevelopments'
 
 export default function Home() {
   return (
@@ -10,11 +12,11 @@ export default function Home() {
         <hr className='mt-3' />
       </section>
       <section className='mt-5 flex flex-col md:flex-row space-x-10'>
-        <div className='w-1/2'>
+        <div className='w-full md:1/2'>
           <ImageCarousel images={['/images/propertyImage/3.png', '/images/propertyImage/2.png', '/images/propertyImage/1.png']} />
           <div className='text-center text-xs mt-2 text-gray-500'>drag on image to switch images</div>
         </div>
-        <div className='w-1/2'>
+        <div className='w-full md:1/2'>
           <h2 className='text-3xl mb-2'>280 Richards, Brooklyn, NY</h2>
           <p className='text-sm text-gray-500'>Shopping Mall</p>
           <p className='text-xs text-gray-500'>Uploaded 3 days ago</p>
@@ -48,6 +50,8 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      <NearbyDevelopments />
     </main>
   )
 }
