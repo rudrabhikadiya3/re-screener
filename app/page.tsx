@@ -3,6 +3,7 @@ import ImageCarousel from '@/components/misc/ImageCarousel'
 import { BriefcaseBusiness, ExternalLink, Landmark, LandPlot } from 'lucide-react'
 import Link from 'next/link'
 import NearbyDevelopments from '@/components/section/NearbyDevelopments'
+import LandSalesTable from '@/components/section/LandSalesTable'
 
 export default function Home() {
   return (
@@ -52,6 +53,7 @@ export default function Home() {
       </section>
 
       <NearbyDevelopments />
+      <LandSalesTable />
     </main>
   )
 }

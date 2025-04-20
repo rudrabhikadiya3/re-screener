@@ -63,13 +63,54 @@ export const nearByData = [
   },
 ]
 
-export type nearByDataType = {
-  id: string
-  name: string
-  desc: string
-  position: number[]
-  floorPrice: number
-  ceilPrice: number
-  status: number
-  Icon: any
-}
+export const landData = [
+  {
+    saleDate: '2024-12-10',
+    pricePSF: '$132.50',
+    zoning: 'C2',
+    lotSize: '15,000 sqft',
+    distance: '1.2 km',
+  },
+  {
+    saleDate: '2024-11-22',
+    pricePSF: '$118.00',
+    zoning: 'R3',
+    lotSize: '8,500 sqft',
+    distance: '2.1 km',
+  },
+  {
+    saleDate: '2024-10-02',
+    pricePSF: '$142.00',
+    zoning: 'M1',
+    lotSize: '20,000 sqft',
+    distance: '3.7 km',
+  },
+  {
+    saleDate: '2024-09-15',
+    pricePSF: '$125.00',
+    zoning: 'C4',
+    lotSize: '12,000 sqft',
+    distance: '0.8 km',
+  },
+  {
+    saleDate: '2024-08-30',
+    pricePSF: '$130.00',
+    zoning: 'R5',
+    lotSize: '10,000 sqft',
+    distance: '1.5 km',
+  },
+  {
+    saleDate: '2024-07-20',
+    pricePSF: '$140.00',
+    zoning: 'M2',
+    lotSize: '18,000 sqft',
+    distance: '2.5 km',
+  },
+  {
+    saleDate: '2024-06-05',
+    pricePSF: '$135.00',
+    zoning: 'C3',
+    lotSize: '14,000 sqft',
+    distance: '1.0 km',
+  },
+]
