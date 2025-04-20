@@ -123,3 +123,37 @@ export const ownersPieData = [
   { browser: 'Open Land', visitors: 20021, fill: 'hsl(var(--chart-1))' },
   { browser: 'Other', visitors: 8000, fill: 'hsl(var(--color-2))' },
 ]
+
+export const nearbyLocations = [
+  {
+    id: '1',
+    name: '280 Richards',
+    position: { lat: 40.67379787643575, lng: -74.0146123896947 },
+  },
+  {
+    id: '2',
+    name: 'Brroklyn Cruise Terminal',
+    position: { lat: 40.680881578761294, lng: -74.0139053762028 },
+  },
+
+  {
+    id: '4',
+    name: 'Coffey Park',
+    position: { lat: 40.67772997378268, lng: -74.00836100374003 },
+  },
+  {
+    id: '5',
+    name: 'Red Hook Park',
+    position: { lat: 40.67236290353006, lng: -74.00733944922031 },
+  },
+  {
+    id: '6',
+    name: 'IKEA',
+    position: { lat: 40.67268049744122, lng: -74.011702035882 },
+  },
+  {
+    id: '7',
+    name: 'Erie Basin Park',
+    position: { lat: 40.67268049744122, lng: -74.011702035882 },
+  },
+]
