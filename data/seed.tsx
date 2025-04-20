@@ -1,4 +1,5 @@
-import { Building, Hospital, House, Warehouse } from 'lucide-react'
+import { LatLngTuple } from 'leaflet'
+import { ArrowUpDown, Building, Hospital, House, ParkingCircle, Ruler, Warehouse, Map, Home, BadgeInfo, Layout, CheckCircle } from 'lucide-react'
 
 export const nearByData = [
   {
@@ -155,5 +156,68 @@ export const nearbyLocations = [
     id: '7',
     name: 'Erie Basin Park',
     position: { lat: 40.67268049744122, lng: -74.011702035882 },
+  },
+]
+export const zoneArea: LatLngTuple[] = [
+  [40.73717736038037, -73.96137050273566],
+  [40.701009721167225, -73.97297801999905],
+  [40.70296523106924, -73.99533323843225],
+  [40.6798213508223, -74.02198753733336],
+  [40.613278717361034, -74.04864183623447],
+  [40.57018636932936, -74.00436130741488],
+  [40.58096205977426, -73.8826973301727],
+  [40.61556314221385, -73.82852891627688],
+  [40.61556314221385, -73.82852891627688],
+  [40.68405956387744, -73.89645438767005],
+  [40.7163263454869, -73.92439841071153],
+  [40.73848033189262, -73.94976298547228],
+]
+
+export const zoningDetails = [
+  {
+    label: 'Zoning Type',
+    value: 'Residential - R2',
+    icon: <Building className='text-blue-600 w-6 h-6' />,
+  },
+  {
+    label: 'FAR (Floor Area Ratio)',
+    value: '1.8',
+    icon: <Ruler className='text-green-600 w-6 h-6' />,
+  },
+  {
+    label: 'Setback (Front)',
+    value: '6 meters',
+    icon: <ArrowUpDown className='text-orange-600 w-6 h-6' />,
+  },
+
+  {
+    label: 'Parking Required',
+    value: '2 spots / 1000 sqft',
+    icon: <ParkingCircle className='text-yellow-600 w-6 h-6' />,
+  },
+  {
+    label: 'Plot Area',
+    value: '3600 sqft',
+    icon: <Map className='text-purple-700 w-6 h-6' />,
+  },
+  {
+    label: 'Land Use',
+    value: 'Permitted for Multi-family Residential',
+    icon: <Home className='text-cyan-600 w-6 h-6' />,
+  },
+  {
+    label: 'Zone Code',
+    value: 'ZR-211',
+    icon: <BadgeInfo className='text-gray-700 w-6 h-6' />,
+  },
+  {
+    label: 'Building Coverage',
+    value: '60% allowed',
+    icon: <Layout className='text-pink-600 w-6 h-6' />,
+  },
+  {
+    label: 'Clearance Status',
+    value: 'Approved - till 2027',
+    icon: <CheckCircle className='text-lime-600 w-6 h-6' />,
   },
 ]

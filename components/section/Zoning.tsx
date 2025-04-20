@@ -1,0 +1,34 @@
+import { zoneArea, zoningDetails } from '@/data/seed'
+import PolygonAreaMap from '../misc/map/PolygonAreaMap'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+
+export default function Zoning() {
+  return (
+    <>
+      <section className='mt-5'>
+        <h2 className='h2'>Zoning Overlay (M-2)</h2>
+        <hr className='mt-3' />
+      </section>
+      <section className='mt-5 flex flex-col md:flex-row space- gap-3'>
+        <div className='w-full md:w-3/5'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+            {zoningDetails.map((item, index) => (
+              <Card key={index} className='rounded-lg border'>
+                <CardHeader className='flex flex-row items-center justify-between pb-2'>
+                  <div className='flex items-center gap-3'>
+                    {item.icon}
+                    <CardTitle className='text-base'>{item.label}</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className='pt-0 text-sm text-muted-foreground'>{item.value}</CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+        <div className='w-full md:w-2/5'>
+          <PolygonAreaMap polygonCoords={zoneArea} />
+        </div>
+      </section>
+    </>
+  )
+}

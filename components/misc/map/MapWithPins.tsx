@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo } from 'react'
-import { MapContainer, TileLayer, Marker, useMap, Tooltip } from 'react-leaflet'
+import React, { useMemo } from 'react'
+import { MapContainer, TileLayer, Marker, Tooltip } from 'react-leaflet'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { nearbyLocations } from '@/data/seed'
@@ -9,17 +9,6 @@ L.Icon.Default.mergeOptions({
   iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 })
-
-const FitBounds = ({ positions }: { position: { lat: number; lng: number } }) => {
-  const map = useMap()
-
-  useEffect(() => {
-    const bounds = L.latLngBounds(positions)
-    map.fitBounds(bounds, { padding: [50, 50] })
-  }, [positions, map])
-
-  return null
-}
 
 const MapWithPins = () => {
   const useReferenceIcon = () => {
@@ -32,7 +21,6 @@ const MapWithPins = () => {
     }, [])
   }
   const referenceIcon = useReferenceIcon()
-  const positions = nearbyLocations.map((loc) => [loc.position.lat, loc.position.lng])
 
   return (
     <MapContainer
@@ -50,8 +38,6 @@ const MapWithPins = () => {
           <Tooltip permanent>{loc.name}</Tooltip>
         </Marker>
       ))}
-
-      <FitBounds positions={positions} />
     </MapContainer>
   )
 }

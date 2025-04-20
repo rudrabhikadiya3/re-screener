@@ -6,6 +6,7 @@ import NearbyDevelopments from '@/components/section/NearbyDevelopments'
 import LandSalesTable from '@/components/section/LandSalesTable'
 import DemoGraphicTrends from '@/components/section/DemoGraphicTrends'
 import NearByLocations from '@/components/section/NearByLocations'
+import Zoning from '@/components/section/Zoning'
 
 export default function Home() {
   return (
@@ -58,6 +59,7 @@ export default function Home() {
       <LandSalesTable />
       <DemoGraphicTrends />
       <NearByLocations />
+      <Zoning />
     </main>
   )
 }
