@@ -26,7 +26,7 @@ const MapWithPins = () => {
     <MapContainer
       style={{ height: '500px', width: '100%' }}
       center={[40.67379787643575, -74.0146123896947]}
-      zoom={13}
+      zoom={16}
       scrollWheelZoom={false}
       className='rounded-lg'
       attributionControl={false}

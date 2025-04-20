@@ -47,7 +47,7 @@ const AreaChartComponent = () => {
     <Card>
       <CardHeader className='flex items-center gap-2 space-y-0 border-b py-5 flex-col sm:flex-row'>
         <div className='flex-1 gap-1'>
-          <CardTitle>Brooklyn Population and Capita Incoome</CardTitle>
+          <CardTitle>Brooklyn Population and Capita Income</CardTitle>
           <CardDescription>Showing last 5 years poppulation and Capitan incomes in Brooklyn</CardDescription>
         </div>
         <Select value={range} onValueChange={(value) => setRange(value)}>
