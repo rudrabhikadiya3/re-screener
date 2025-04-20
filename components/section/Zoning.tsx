@@ -1,5 +1,9 @@
 import { zoneArea, zoningDetails } from '@/data/seed'
-import PolygonAreaMap from '../misc/map/PolygonAreaMap'
+import dynamic from 'next/dynamic'
+const LazyPolygonMap = dynamic(() => import('../misc/map/PolygonAreaMap'), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+})
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import SectionTitle from '../misc/SectionTitle'
 
@@ -24,7 +28,7 @@ export default function Zoning() {
           </div>
         </div>
         <div className='w-full md:w-2/5'>
-          <PolygonAreaMap polygonCoords={zoneArea} />
+          <LazyPolygonMap polygonCoords={zoneArea} />
         </div>
       </section>
     </>
