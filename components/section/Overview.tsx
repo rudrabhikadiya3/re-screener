@@ -6,7 +6,6 @@ export default function Overview() {
     <section className='mt-5 flex flex-col md:flex-row space-x-10'>
       <div className='w-full md:1/2'>
         <ImageCarousel images={['/images/propertyImage/3.png', '/images/propertyImage/2.png', '/images/propertyImage/1.png']} />
-        <div className='text-center text-xs mt-2 text-gray-500'>drag on image to switch images</div>
       </div>
       <div className='w-full md:1/2'>
         <h2 className='text-3xl mb-2'>280 Richards, Brooklyn, NY</h2>
