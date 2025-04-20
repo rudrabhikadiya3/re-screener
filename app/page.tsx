@@ -4,6 +4,7 @@ import { BriefcaseBusiness, ExternalLink, Landmark, LandPlot } from 'lucide-reac
 import Link from 'next/link'
 import NearbyDevelopments from '@/components/section/NearbyDevelopments'
 import LandSalesTable from '@/components/section/LandSalesTable'
+import DemoGraphicTrends from '@/components/section/DemoGraphicTrends'
 
 export default function Home() {
   return (
@@ -54,6 +55,7 @@ export default function Home() {
 
       <NearbyDevelopments />
       <LandSalesTable />
+      <DemoGraphicTrends />
     </main>
   )
 }

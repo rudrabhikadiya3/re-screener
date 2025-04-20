@@ -114,3 +114,12 @@ export const landData = [
     distance: '1.0 km',
   },
 ]
+
+export const ownersPieData = [
+  { browser: 'Home', visitors: 120321, fill: 'hsl(var(--chart-5))' },
+  { browser: 'Office', visitors: 99001, fill: 'hsl(var(--chart-2))' },
+  { browser: 'WareHouse', visitors: 5423, fill: 'hsl(var(--chart-3))' },
+  { browser: 'Shop', visitors: 30215, fill: 'hsl(var(--chart-4))' },
+  { browser: 'Open Land', visitors: 20021, fill: 'hsl(var(--chart-1))' },
+  { browser: 'Other', visitors: 8000, fill: 'hsl(var(--color-2))' },
+]

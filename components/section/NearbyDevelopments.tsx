@@ -20,7 +20,7 @@ export default function NearbyDevelopments() {
         <h2 className='h2'>Nearby Developments</h2>
         <hr className='mt-3' />
       </section>
-      <section className='mt-5 flex flex-col md:flex-row space- gap-3'>
+      <section className='mt-5 flex flex-col md:flex-row gap-3'>
         <div className='w-full md:w-2/5 order-1 md:order-0'>
           <Tabs defaultValue='account' className='flex-row' value={tab} onValueChange={onTabChange}>
             <TabsList className='flex-col w-full space-y-2'>
