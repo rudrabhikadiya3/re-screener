@@ -1,14 +1,12 @@
 import React from 'react'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { landData } from '@/data/seed'
+import SectionTitle from '../misc/SectionTitle'
 
 export default function LandSalesTable() {
   return (
     <>
-      <section className='mt-5'>
-        <h2 className='h2'>Nearby Land Sales</h2>
-        <hr className='mt-3' />
-      </section>
+      <SectionTitle>Nearby Land Sales</SectionTitle>
       <section className='mt-5'>
         <Table>
           <TableHeader>

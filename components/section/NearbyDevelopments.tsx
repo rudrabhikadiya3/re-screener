@@ -2,7 +2,8 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useState } from 'react'
 import dynamic from 'next/dynamic'
 import { nearByData } from '@/data/seed'
-const LazyMap = dynamic(() => import('@/components/misc/Map'), {
+import SectionTitle from '../misc/SectionTitle'
+const LazyMap = dynamic(() => import('@/components/misc/map/Map'), {
   ssr: false,
   loading: () => <p>Loading...</p>,
 })
@@ -16,10 +17,7 @@ export default function NearbyDevelopments() {
 
   return (
     <>
-      <section className='mt-5'>
-        <h2 className='h2'>Nearby Developments</h2>
-        <hr className='mt-3' />
-      </section>
+      <SectionTitle>Nearby Developments</SectionTitle>
       <section className='mt-5 flex flex-col md:flex-row gap-3'>
         <div className='w-full md:w-2/5 order-1 md:order-0'>
           <Tabs defaultValue='account' className='flex-row' value={tab} onValueChange={onTabChange}>

@@ -1,14 +1,12 @@
 import React from 'react'
 import PopulationChart from '../chart/Population'
 import { OwnershipPie } from '../chart/OwnershipPie'
+import SectionTitle from '../misc/SectionTitle'
 
 export default function DemoGraphicTrends() {
   return (
     <>
-      <section className='mt-5'>
-        <h2 className='h2'>Demographic Trends</h2>
-        <hr className='mt-3' />
-      </section>
+      <SectionTitle>Demographic Trends</SectionTitle>
       <section className='mt-5 flex flex-col md:flex-row space- gap-3'>
         <div className='w-full md:w-2/5'>
           <OwnershipPie />

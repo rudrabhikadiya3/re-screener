@@ -1,15 +1,13 @@
 import { zoneArea, zoningDetails } from '@/data/seed'
 import PolygonAreaMap from '../misc/map/PolygonAreaMap'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import SectionTitle from '../misc/SectionTitle'
 
 export default function Zoning() {
   return (
     <>
-      <section className='mt-5'>
-        <h2 className='h2'>Zoning Overlay (M-2)</h2>
-        <hr className='mt-3' />
-      </section>
-      <section className='mt-5 flex flex-col md:flex-row space- gap-3'>
+      <SectionTitle>Zoning Overlay (M-2)</SectionTitle>
+      <section className='mt-5 flex flex-col md:flex-row gap-5'>
         <div className='w-full md:w-3/5'>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
             {zoningDetails.map((item, index) => (
