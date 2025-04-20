@@ -7,7 +7,7 @@ const InterSans = Inter({
   subsets: ['latin'],
 })
 
-export const metadata: Metadata = { title: 'Property Screener' }
+export const metadata: Metadata = { title: 'Property Screener | Rudra' }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
