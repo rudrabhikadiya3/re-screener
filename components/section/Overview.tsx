@@ -1,7 +1,22 @@
 import ImageCarousel from '@/components/misc/ImageCarousel'
 import { BriefcaseBusiness, ExternalLink, Landmark, LandPlot } from 'lucide-react'
 import Link from 'next/link'
+import { useQuery } from '@tanstack/react-query'
+import { getOverview } from '@/services'
+
 export default function Overview() {
+  const { data } = useQuery({
+    queryKey: ['users'],
+    queryFn: () =>
+      getOverview({
+        PropertyTitle: 'The main property title',
+        PropertyPrice: 'Property price in dollars',
+        PropertyDescription: 'some description about this property',
+        PropertySize: 'total property size in sqft, give me only number',
+        PropertyCapRate: 'property cap rate in %, give me only number',
+      }),
+  })
+  console.log('🔵 data', data)
   return (
     <section className='mt-5 flex flex-col md:flex-row space-x-10'>
       <div className='w-full md:1/2'>
