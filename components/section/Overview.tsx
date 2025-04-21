@@ -3,6 +3,7 @@ import { BriefcaseBusiness, ExternalLink, Landmark, LandPlot } from 'lucide-reac
 import Link from 'next/link'
 import { useQuery } from '@tanstack/react-query'
 import { getOverview } from '@/services'
+import { toast } from 'sonner'
 
 export default function Overview() {
   const { data } = useQuery({
@@ -12,11 +13,20 @@ export default function Overview() {
         PropertyTitle: 'The main property title',
         PropertyPrice: 'Property price in dollars',
         PropertyDescription: 'some description about this property',
-        PropertySize: 'total property size in sqft, give me only number',
-        PropertyCapRate: 'property cap rate in %, give me only number',
+        PropertySize: 'total property size in sqft, give me only number, do not apply any unit',
+        PropertyCapRate: 'property cap rate in %, give me only number, do not apply any unit',
+        Zoning: 'property zoning type, which zone to be applied here?',
+        ProjectLandArea: 'total land area in acres, give me only number, do not apply any unit',
+        Seller: 'property seller name',
+        City: 'city name',
+        State: 'state name',
+        PropertyType: 'property type, like shopping mall, office, etc',
       }),
   })
   console.log('🔵 data', data)
+  if (data?.error) {
+    toast.error(data.error)
+  }
   return (
     <section className='mt-5 flex flex-col md:flex-row space-x-10'>
       <div className='w-full md:1/2'>

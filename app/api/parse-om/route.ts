@@ -1,25 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { LLMResponse, pdfParser } from '@/utils/server'
+import { convertStringToObject, LLMResponse, pdfParser } from '@/utils/server'
 
 export const config = { api: { bodyParser: false } }
 
 export async function POST(req: NextRequest) {
   try {
-    const formData = await req.formData()
-    const demandsJson = formData.get('demands') as string
+    const body = await req.json()
+    const demandsJson = body.demands
     if (!demandsJson) {
       return NextResponse.json({ error: 'Missing PDF or demands' }, { status: 400 })
     }
-    let demands: Record<string, string>
-    try {
-      demands = JSON.parse(demandsJson)
-    } catch (e) {
-      return NextResponse.json({ error: 'Invalid JSON in demands' }, { status: 400 })
-    }
-    const extractedText: string = pdfParser('sample.pdf')
+    let demands: Record<string, string> = demandsJson
+
+    const extractedText: string = await pdfParser('sample.pdf')
     const AIResponse = await LLMResponse(extractedText, demands)
     const output = AIResponse.choices[0]?.message?.content
-    return NextResponse.json({ output })
+
+    return NextResponse.json({ output: convertStringToObject(output as string) }, { status: 200 })
   } catch (err: any) {
     console.log('🔵 err', err)
     return NextResponse.json({ error: err.message || err.toString() }, { status: 500 })
