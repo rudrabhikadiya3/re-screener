@@ -3,6 +3,9 @@ import { useState } from 'react'
 import dynamic from 'next/dynamic'
 import { nearByData } from '@/data/seed'
 import SectionTitle from '../misc/SectionTitle'
+import { toast } from 'sonner'
+import { getOverview } from '@/services'
+import { useQuery } from '@tanstack/react-query'
 const LazyMap = dynamic(() => import('@/components/misc/map/Map'), {
   ssr: false,
   loading: () => <p>Loading...</p>,
@@ -15,6 +18,26 @@ export default function NearbyDevelopments() {
   }
   const currentTab = nearByData.find((item) => item.id === tab) ?? nearByData[0]
 
+  const { data, isLoading } = useQuery({
+    queryKey: ['overview'],
+    queryFn: () =>
+      getOverview({
+        NearbyDevelopments1: 'Nearby Development 1, name of the project',
+        NearbyDevelopments2: 'Nearby Development 2, name of the project',
+        NearbyDevelopments3: 'Nearby Development 3, name of the project',
+        NearbyDevelopments4: 'Nearby Development 4, name of the project',
+        NearbyDevelopments5: 'Nearby Development 5, name of the project',
+        NearbyDevelopments6: 'Nearby Development 6, name of the project',
+      }),
+  })
+
+  if (data?.error) {
+    toast.error(data.error)
+  }
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
   return (
     <>
       <SectionTitle>Nearby Developments</SectionTitle>

@@ -3,7 +3,7 @@ import pdf from 'pdf-parse'
 import path from 'path'
 import { Groq } from 'groq-sdk'
 
-const groq = new Groq({ apiKey: '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' })
+const groq = new Groq({ apiKey: process.env.GROK_API_KEY })
 
 export const pdfParser = async (fileName: string) => {
   const filePath = path.join(process.cwd(), 'public', fileName)
@@ -12,24 +12,31 @@ export const pdfParser = async (fileName: string) => {
   return extractedText.text
 }
 
-export const LLMResponse = async (extractedText: string, demands: Record<string, string>) => {
-  const prompt = `You're an AI assistant helping extract specific info from real estate documents. Here is the text content of a PDF describing a property:
------
-${extractedText}  
------
+let messageHistory: { role: string; content: string }[] = []
 
-Based on this obove raw text, return a JSON with the following structure:
+export const initLLMWithText = (extractedText: string) => {
+  messageHistory = [
+    {
+      role: 'user',
+      content: `You're an AI assistant helping extract specific info from real estate documents. Here is the text content of a PDF describing a property:\n-----\n${extractedText}\n-----\nRemember this text for future queries.`,
+    },
+  ]
+}
 
-${JSON.stringify(demands, null, 2)}
-- Take the values from the text above and fill them in the JSON object. the keys of this object is the same as the keys in the demands object. use the value of any particular key as your context to extract the value from the text.
-- Only return the JSON object. No explanation or any title. stricly just me only JSON object with filled details in output
-- dont return blank value and blank object, you job is to fullfill value
-`
+export const LLMQueryWithDemands = async (demands: Record<string, string>) => {
+  const prompt = `Based on the property description I gave earlier, return a JSON with the following structure:\n\n${JSON.stringify(
+    demands,
+    null,
+    2
+  )}\n\n- Take the values from the remembered text and fill them in.\n- Use each key and its value as context to extract matching values.\n- ONLY return the completed JSON. No explanations.`
+
+  messageHistory.push({ role: 'user', content: prompt })
+
   const chatCompletion = await groq.chat.completions.create({
-    messages: [{ role: 'user', content: prompt }],
+    messages: messageHistory,
     model: 'llama-3.3-70b-versatile',
   })
-  console.log(`🔵 chatCompletion=>`, chatCompletion)
+
   return chatCompletion
 }
 

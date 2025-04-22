@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { convertStringToObject, LLMResponse, pdfParser } from '@/utils/server'
+import { convertStringToObject, initLLMWithText, LLMQueryWithDemands, pdfParser } from '@/utils/server'
 
 export const config = { api: { bodyParser: false } }
 
@@ -13,7 +13,8 @@ export async function POST(req: NextRequest) {
     let demands: Record<string, string> = demandsJson
 
     const extractedText: string = await pdfParser('sample.pdf')
-    const AIResponse = await LLMResponse(extractedText, demands)
+    await initLLMWithText(extractedText)
+    const AIResponse = await LLMQueryWithDemands(demands)
     const output = AIResponse.choices[0]?.message?.content
 
     return NextResponse.json({ output: convertStringToObject(output as string) }, { status: 200 })
